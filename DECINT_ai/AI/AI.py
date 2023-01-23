@@ -4,14 +4,9 @@ import os
 import json
 import zipfile
 import magic
-import TF_horovod
-import torch_horovod
 #  import TF_kung_fu
 #  import keras_kung_fu
-import TF_horovod
-import keras_horovod
 import re
-import numpy as np
 
 
 class DECIError(Exception):
@@ -38,8 +33,8 @@ class DependencyError(DECIError):
 
 
 def write_script(script):
-    open("./model.py", "w").close()
-    with open("./model.py", "w") as file:
+    open("model.py", "w").close()
+    with open("model.py", "w") as file:
         file.read(script.replace("`", " "))
 
 
@@ -175,7 +170,7 @@ def file_please_no_hack():
         "ISO Media, Apple QuickTime movie, Apple QuickTime"
     ]
     data_files = []
-    for path, subdirs, files in os.walk("./info/"):
+    for path, subdirs, files in os.walk("../info/"):
         for name in files:
             data_files.append(os.path.join(path, name))
 
